@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Modern Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for animations and specific elements */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-extrabold tracking-tight text-indigo-600">Our Story</h1>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+        <section class="mb-16">
+            <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl transition duration-500 hover:shadow-3xl">
+                <h2 class="text-4xl font-bold mb-4 text-gray-900">Pioneering Excellence</h2>
+                <p class="text-xl leading-relaxed text-gray-600 fade-in" id="intro-text">
+                    Welcome to our journey! We are driven by a passion for innovation and a commitment to quality. Every project we undertake is built on a foundation of creativity, transparency, and a relentless pursuit of perfection. Our mission is to transform simple ideas into impactful realities.
+                </p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] fade-in">
+                <div class="text-indigo-500 mb-3 text-3xl font-bold">💡</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Innovation</h3>
+                <p class="text-gray-600">We constantly explore new technologies and creative solutions to stay ahead of the curve and deliver maximum value.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] fade-in" style="transition-delay: 0.1s;">
+                <div class="text-green-500 mb-3 text-3xl font-bold">🤝</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Transparency</h3>
+                <p class="text-gray-600">Open communication and honesty are the cornerstones of our client and team relationships.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] fade-in" style="transition-delay: 0.2s;">
+                <div class="text-red-500 mb-3 text-3xl font-bold">✅</div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Quality</h3>
+                <p class="text-gray-600">We take pride in delivering robust, high-performance, and beautifully crafted products.</p>
+            </div>
+        </section>
+        
+        <section class="text-center py-12 bg-indigo-50 rounded-xl shadow-inner">
+            <h2 class="text-3xl font-bold mb-4 text-indigo-700">Ready to start a project?</h2>
+            <p class="text-lg text-indigo-600 mb-6">Learn more about what we can do together.</p>
+            <button id="cta-button" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105 active:scale-95">
+                Get in Touch
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-4 mt-12">
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 1. Interactive Button
+        document.getElementById('cta-button').addEventListener('click', function() {
+            alert('Thanks for your interest! Imagine this links to a Contact page.');
+        });
+
+        // 2. Scroll-based Fade-In Effect (Modern Design)
+        // This makes content appear dynamically as the user scrolls down
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.25, // Element is 25% in view
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>About Pages</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel provident officiis dolores quo aliquid animi explicabo voluptatem odio totam aliquam voluptates eius, saepe laborum ipsam tempore. Eveniet maiores a voluptatem.</p>
+    
+</body>
+</html> -->
